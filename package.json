@@ -1,0 +1,25 @@
+{
+  "name": "oop-php-todolist",
+  "version": "1.0.0",
+  "description": "php oop",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardiman-xyz/php-oop-todolist.git"
+  },
+  "author": "ardiman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ardiman-xyz/php-oop-todolist/issues"
+  },
+  "homepage": "https://github.com/ardiman-xyz/php-oop-todolist#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}
