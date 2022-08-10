@@ -31,15 +31,16 @@ class UserRepository
         $statement->execute([$id]);
     }
 
-    public function findById(string $id): ?User
+    public function findById(string $username): ?User
     {
-        $statement = $this->db->prepare("SELECT username, password FROM users WHERE username = ?");
-        $statement->execute([$id]);
+        $statement = $this->db->prepare("SELECT id, username, password FROM users WHERE username = ?");
+        $statement->execute([$username]);
+        $row = $statement->fetch();
 
         try {
-            $row = $statement->fetch();
             if ($row) {
                 $user = new User();
+                $user->id = $row['id'];
                 $user->username = $row['username'];
                 $user->password = $row['password'];
 
