@@ -4,7 +4,11 @@
             <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="w-full" alt="Phone image" />
             </div>
+
             <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
+                <?php if ($model['error']) : ?>
+                    <h1 class="mb-2 text-red-400"><?= $model['error'] ?></h1>
+                <?php endif; ?>
                 <form action="/users/login" method="post">
 
                     <!-- Email input -->
