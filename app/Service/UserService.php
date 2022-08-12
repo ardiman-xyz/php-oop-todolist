@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\User;
 use App\Exception\ValidationException;
+use App\Helper\ValidationUtil;
 use App\Model\UserLoginRequest;
 use App\Model\UserLoginResponse;
 use App\Model\UserRegisterRequest;
@@ -22,7 +23,7 @@ class UserService
 
     public function register(UserRegisterRequest $request): UserRegisterResponse
     {
-        $this->validateUserRegisterRequest($request);
+        ValidationUtil::validationReflection($request);
 
         $user = new User();
         $user->username = $request->username;
@@ -36,18 +37,10 @@ class UserService
         return $response;
     }
 
-    private function validateUserRegisterRequest(UserRegisterRequest $request)
-    {
-        if (
-            $request->username == null || $request->password == null || trim($request->username) == "" || trim($request->password) == ""
-        ) {
-            throw new ValidationException("username, password cannot be null");
-        }
-    }
-
     public function login(UserLoginRequest $request): UserLoginResponse
     {
-        $this->validationUserLoginRequest($request);
+        // $this->validationUserLoginRequest($request);
+        ValidationUtil::validationReflection($request);
 
         $user = $this->userRepository->findById($request->username);
 
@@ -64,13 +57,13 @@ class UserService
         }
     }
 
-    private function validationUserLoginRequest($request)
-    {
-        if (
-            $request->username == null || $request->password == null ||
-            trim($request->username) == "" || trim($request->password) == ""
-        ) {
-            throw new ValidationException("Id, Password can not blank");
-        }
-    }
+    // private function validationUserLoginRequest($request)
+    // {
+    //     if (
+    //         $request->username == null || $request->password == null ||
+    //         trim($request->username) == "" || trim($request->password) == ""
+    //     ) {
+    //         throw new ValidationException("Id, Password can not blank");
+    //     }
+    // }
 }
