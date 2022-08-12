@@ -7,6 +7,7 @@ use App\Entity\Todo;
 use PHPUnit\Framework\TestCase;
 
 use function PHPUnit\Framework\assertEquals;
+use function PHPUnit\Framework\assertNotNull;
 use function PHPUnit\Framework\assertNull;
 
 class TodoRepositoryTest extends TestCase
@@ -71,5 +72,12 @@ class TodoRepositoryTest extends TestCase
         $result = $this->todoRepository->findById("notfound");
 
         assertNull($result);
+    }
+
+    public function testGetAllData()
+    {
+        $todo = $this->todoRepository->getAllData();
+
+        assertNotNull($todo);
     }
 }

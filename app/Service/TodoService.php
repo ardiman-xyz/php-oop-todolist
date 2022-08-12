@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-use App\Config\Database;
 use App\Entity\Todo;
 use App\Exception\ValidationException;
 use App\Model\TodoCreateRequest;
@@ -25,7 +24,7 @@ class TodoService
 
         $todo = new Todo();
         $todo->title = $request->title;
-        $todo->isDone = 0;
+        $todo->isDone = $request->isDone;
 
         $this->todoRepository->save($todo);
 
@@ -57,5 +56,10 @@ class TodoService
         } catch (Exception $exception) {
             throw $exception;
         }
+    }
+
+    public function getAllData()
+    {
+        return $this->todoRepository->getAllData();
     }
 }

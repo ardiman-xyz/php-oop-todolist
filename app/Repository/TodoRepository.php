@@ -25,6 +25,15 @@ class TodoRepository
         return $todo;
     }
 
+    public function getAllData()
+    {
+        $sql = "SELECT id, title, is_done FROM todos";
+
+        $statement = $this->db->query($sql);
+        $todos = $statement->fetchAll();
+        return $todos;
+    }
+
     public function saveReturnLastId(Todo $todo): string
     {
         $statement = $this->db->prepare("INSERT INTO todos(title, is_done) VALUES (?,?)");
