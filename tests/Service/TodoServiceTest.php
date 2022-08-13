@@ -7,6 +7,7 @@ use App\Entity\Todo;
 use App\Exception\ValidationException;
 use App\Model\TodoCreateRequest;
 use App\Model\TodoUpdateRequest;
+use App\Model\TodoUpdateStatusRequest;
 use App\Repository\TodoRepository;
 use PHPUnit\Framework\TestCase;
 
@@ -125,5 +126,43 @@ class TodoServiceTest extends TestCase
         $request->title = "safsadf";
 
         $this->todoService->updateData($request);
+    }
+
+    public function testUpdateStatusSuccess()
+    {
+        $todo = new Todo();
+        $todo->title = "from update status";
+        $todo->isDone = 0;
+
+        $insertId = $this->todoRepository->saveReturnLastId($todo);
+
+        $request = new TodoUpdateStatusRequest();
+        $request->id = $insertId;
+        $request->isDone = 1;
+
+        $response = $this->todoService->updateStatus($request);
+
+        assertEquals($request->isDone, $response->todo->isDone);
+    }
+
+    public function testUpdateStatusEmptyRequest()
+    {
+        $this->expectException(ValidationException::class);
+        $request = new TodoUpdateStatusRequest();
+        $request->id = "";
+        $request->isDone = "";
+
+        $this->todoService->updateStatus($request);
+    }
+
+    public function testUpdateStatusDataNotFound()
+    {
+        $this->expectException(ValidationException::class);
+
+        $request = new TodoUpdateStatusRequest();
+        $request->id = "asdfd";
+        $request->isDone = 1;
+
+        $this->todoService->updateStatus($request);
     }
 }

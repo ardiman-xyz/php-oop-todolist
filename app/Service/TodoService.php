@@ -9,6 +9,8 @@ use App\Model\TodoCreateRequest;
 use App\Model\TodoCreateResponse;
 use App\Model\TodoUpdateRequest;
 use App\Model\TodoUpdateResponse;
+use App\Model\TodoUpdateStatusRequest;
+use App\Model\TodoUpdateStatusResponse;
 use App\Repository\TodoRepository;
 use Exception;
 
@@ -84,5 +86,29 @@ class TodoService
     public function getAllData()
     {
         return $this->todoRepository->getAllData();
+    }
+
+    public function updateStatus(TodoUpdateStatusRequest $request): TodoUpdateStatusResponse
+    {
+        ValidationUtil::validationReflection($request);
+
+        try {
+
+            $todo = $this->todoRepository->findById($request->id);
+
+            if ($todo === null) return throw new ValidationException("Todo not found");
+
+            $todo->isDone = $request->isDone;
+            $todo->id = $request->id;
+
+            $this->todoRepository->updateStatus($todo);
+
+            $response = new TodoUpdateStatusResponse();
+            $response->todo = $todo;
+
+            return $response;
+        } catch (Exception $exception) {
+            throw $exception;
+        }
     }
 }

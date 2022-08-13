@@ -89,4 +89,9 @@ class TodoController
             ]);
         }
     }
+
+    public function changeStatus(string $id)
+    {
+        echo json_encode($id);
+    }
 }

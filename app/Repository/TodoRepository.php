@@ -71,6 +71,14 @@ class TodoRepository
         return $todo;
     }
 
+    public function updateStatus(Todo $todo): Todo
+    {
+        $statement = $this->db->prepare("UPDATE todos SET is_done = ? WHERE id = ?");
+        $statement->execute([$todo->isDone, $todo->id]);
+
+        return $todo;
+    }
+
     public function deleteById(string $id): void
     {
         $statement = $this->db->prepare("DELETE FROM todos WHERE id = ?");

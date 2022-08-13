@@ -11,7 +11,7 @@
 
 <body>
     <div class="flex flex-row">
-        <aside class="w-56 min-h-screen bg-slate-300">
+        <aside class="w-[15%] min-h-screen bg-slate-300 fixed">
             <div class="flex flex-col justify-between  min-h-screen">
                 <div>
                     <div id="logo" class="flex px-3">
@@ -23,11 +23,14 @@
                     </div>
 
                     <ul className="space-y-1">
-                        <li class="px-4 py-2 rounded-sm bg-blue-300 border-r-2 border-blue-500 hover:bg-blue-300 hover:cursor-pointer">
+                        <li class="px-4 py-2 rounded-sm  hover:bg-blue-300 hover:cursor-pointer">
                             <span className="ml-3 text-sm">Dahboard</span>
                         </li>
-                        <li class="px-4 py-2 rounded-sm hover:bg-blue-300 hover:border-r-2 border-blue-500 hover:cursor-pointer">
+                        <li class="px-4 py-2 rounded-sm bg-blue-300 border-r-2 hover:bg-blue-300 hover:border-r-2 border-blue-500 hover:cursor-pointer">
                             <span className="ml-3 text-sm">Todo</span>
+                        </li>
+                        <li class="px-4 py-2 rounded-sm hover:bg-blue-300 hover:border-r-2 border-blue-500 hover:cursor-pointer">
+                            <a href="/blog" className="ml-3 text-sm">Blog</a>
                         </li>
                         <li class="px-4 py-2 rounded-sm hover:bg-blue-300 hover:border-r-2 border-blue-500 hover:cursor-pointer">
                             <span className="ml-3 text-sm">Upload</span>
@@ -40,4 +43,5 @@
                 </div>
             </div>
         </aside>
-        <div class="w-full">
+        <div class="w-full ml-[15%]">
+            <main class="min-h-screen w-full">

@@ -80,4 +80,20 @@ class TodoRepositoryTest extends TestCase
 
         assertNotNull($todo);
     }
+
+    public function testUpdateStatus()
+    {
+        $todo = new Todo();
+        $todo->title = "From change status";
+        $todo->isDone = 0;
+
+        $insertId = $this->todoRepository->saveReturnLastId($todo);
+
+        $todo->isDone = 1;
+        $todo->id = $insertId;
+
+        $response = $this->todoRepository->updateStatus($todo);
+
+        assertEquals($response->isDone, $todo->isDone);
+    }
 }
