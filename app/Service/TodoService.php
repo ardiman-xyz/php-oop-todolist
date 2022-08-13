@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\Todo;
 use App\Exception\ValidationException;
+use App\Helper\ValidationUtil;
 use App\Model\TodoCreateRequest;
 use App\Model\TodoCreateResponse;
 use App\Repository\TodoRepository;
@@ -20,7 +21,7 @@ class TodoService
 
     public function create(TodoCreateRequest $request): TodoCreateResponse
     {
-        $this->validateTodoCreateRequest($request);
+        ValidationUtil::validationReflection($request);
 
         $todo = new Todo();
         $todo->title = $request->title;
@@ -32,15 +33,6 @@ class TodoService
         $response->todo = $todo;
 
         return $response;
-    }
-
-    private function validateTodoCreateRequest(TodoCreateRequest $request)
-    {
-        if (
-            $request->title == null || trim($request->title) == ""
-        ) {
-            throw new ValidationException("Title is required");
-        }
     }
 
     public function remove(string $id): void

@@ -16,6 +16,5 @@ Router::add('GET', '/users/login', UserController::class, 'login', []);
 Router::add('POST', '/users/login', UserController::class, 'postLogin', []);
 
 Router::add('POST', '/todo/store', TodoController::class, 'store', []);
-Router::add('GET', '/todo/21/delete', TodoController::class, 'delete', []);
 
 Router::run();
