@@ -8,6 +8,7 @@ use App\Exception\ValidationException;
 use App\Model\TodoCreateRequest;
 use App\Repository\TodoRepository;
 use App\Service\TodoService;
+use Exception;
 
 class TodoController
 {
@@ -38,8 +39,18 @@ class TodoController
         }
     }
 
-    public function delete(string $id)
+    public function delete(string $id): void
     {
-        echo $id;
+        try {
+            $this->todoService->remove($id);
+            View::redirect('/', [
+                'title' => 'Home - Todo',
+            ]);
+        } catch (ValidationException | Exception $validation) {
+            View::render('Home/index', [
+                'title' => 'Home - Todo',
+                'error' => $validation->getMessage()
+            ]);
+        }
     }
 }

@@ -16,7 +16,9 @@ class ValidationUtil
         foreach ($properties as $property) {
             if (!$property->isInitialized($request)) {
                 throw new ValidationException("$property->name is not set");
-            } else if (!$property->getValue($request)) {
+            } else if ($property->getValue($request) === null || trim(
+                $property->getValue($request) == ''
+            )) {
                 throw new ValidationException("$property->name is null");
             }
         }
