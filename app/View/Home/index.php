@@ -24,7 +24,7 @@ session_start();
                 <p><?= $todo['title'] ?></p>
                 <div class="flex space-x-1">
                     <a href="/todo/<?= $todo['id'] ?>/delete" class="text-blue-500 underline hover:text-blue-600">Delete</a>
-                    <a href="javascript:;" class="text-blue-500 underline hover:text-blue-600">Edit</a>
+                    <a href="/todo/<?= $todo['id'] ?>/edit" class="text-blue-500 underline hover:text-blue-600">Edit</a>
                 </div>
             </div>
         <?php endforeach ?>
