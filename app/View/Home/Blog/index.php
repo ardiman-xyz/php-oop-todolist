@@ -2,24 +2,26 @@
 
 <div class="w-[600px] mx-auto mb-6">
     <?php for ($i = 0; $i < 6; $i++) : ?>
-        <div class="w-full flex flex-row border-[1px] mb-2 border-gray-400 h-[200px] rounded-xl p-4">
-            <div class="w-[60px] flex flex-col items-center p-y justify-between">
-                <div class="w-[40px] h-[40px] bg-gray-400 rounded-full mb-2"></div>
-                <p class="text-sm">Like</p>
-                <p class="text-sm">Save</p>
-                <p class="text-sm">Show</p>
-            </div>
-            <div class="w-full">
-                <div class="flex flex-row justify-between">
-                    <a href="/blog/detail/title-for-my-first-blog" class="font-bold ml-2">Title for my first blog</a>
-                    <a href="javascript:;">Edit</a>
-                </div>
-                <p class="text-xs text-gray-600 ml-2">12/09/2022 - 12:03:45</p>
-                <div class="mt-2 ml-2">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur perspiciatis alias amet voluptate reiciendis exercitationem, ab a, animi doloremque dolor laudantium eaque illum nam, delectus quibusdam minus aperiam quod atque.</p>
+        <div class="w-full mb-2 h-[210px]">
+            <p class="text-slate-500 text-sm font-semibold">2 hours ago</p>
+            <a href="/blog/12" class="text-xl block font-extrabold mt-3">My firs blog in here app</a>
+            <p class="mt-1 text-slate-700 leading-relaxed">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, ratione sint quia dignissimos quas odit optio illo hic totam doloremque velit cum similique neque, consectetur quisquam, corporis suscipit. ..
+            </p>
+            <div class="mt-5 flex-row items-center flex justify-between">
+                <p class="text-slate-500 text-xs font-semibold">2 min read</p>
+                <div class="flex flex-row space-x-2 items-center">
+                    <div class="">
+                        <a href="#" class="text-slate-500">Save</a>
+                    </div>
+                    <div class="">
+                        <a href="#" class="text-slate-500">Edit</a>
+                    </div>
                 </div>
             </div>
         </div>
+        <hr>
+        <br>
     <?php endfor ?>
     <div class="flex justify-center my-6">
         <button class="border-[1.5px] focus:ring-0 rounded-xl py-2 px-4 border-gray-600">Load more</button>

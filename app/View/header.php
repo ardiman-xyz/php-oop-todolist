@@ -11,37 +11,21 @@
 
 <body>
     <div class="flex flex-row">
-        <aside class="w-[15%] min-h-screen bg-slate-300 fixed">
-            <div class="flex flex-col justify-between  min-h-screen">
-                <div>
-                    <div id="logo" class="flex px-3">
-                        <div class="w-[40px] h-[40px] bg-gray-200 rounded-sm p-4 my-3"></div>
-                        <div class="py-2 px-2 ">
-                            <p class="text-leading font-medium text-gray-700 text-xs">PHP OOP</p>
-                            <p class="text-leading text-blue-400 text-xs">Aktif</p>
-                        </div>
-                    </div>
-
-                    <ul className="space-y-1">
-                        <li class="px-4 py-2 rounded-sm  hover:bg-blue-300 hover:cursor-pointer">
-                            <span className="ml-3 text-sm">Dahboard</span>
+        <div class="w-full">
+            <div class="w-full bg-slate-200 shadow-sm">
+                <div class="mb-7 w-[1200px] mx-auto justify-between items-center h-[60px] flex flex-row px-[20px]">
+                    <h1 class="text-xl font-semibold">My Activity</h1>
+                    <ul class="flex flex-row  space-x-7">
+                        <li>
+                            <a href="/home">Home</a>
                         </li>
-                        <li class="px-4 py-2 rounded-sm bg-blue-300 border-r-2 hover:bg-blue-300 hover:border-r-2 border-blue-500 hover:cursor-pointer">
-                            <span className="ml-3 text-sm">Todo</span>
+                        <li>
+                            <a href="/">Todo</a>
                         </li>
-                        <li class="px-4 py-2 rounded-sm hover:bg-blue-300 hover:border-r-2 border-blue-500 hover:cursor-pointer">
-                            <a href="/blog" className="ml-3 text-sm">Blog</a>
-                        </li>
-                        <li class="px-4 py-2 rounded-sm hover:bg-blue-300 hover:border-r-2 border-blue-500 hover:cursor-pointer">
-                            <span className="ml-3 text-sm">Upload</span>
+                        <li>
+                            <a href="/blog">BLog</a>
                         </li>
                     </ul>
                 </div>
-                <div class="px-4 py-2 text-end">
-                    <a href="javascript:;" class="hover:underline">
-                        < Hide</a>
-                </div>
             </div>
-        </aside>
-        <div class="w-full ml-[15%]">
-            <main class="min-h-screen w-full">
+            <main class=" min-h-screen w-full">

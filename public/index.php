@@ -23,5 +23,6 @@ Router::add('POST', '/todo/update', TodoController::class, 'update', []);
 Router::add('GET', '/todo/changeStatus/([0-9]*)', TodoController::class, 'changeStatus', []);
 
 Router::add('GET', '/blog', BlogController::class, 'index', []);
+Router::add('GET', '/blog/([0-9a-zA-Z]*)', BlogController::class, 'show', []);
 
 Router::run();
