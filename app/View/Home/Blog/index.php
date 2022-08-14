@@ -1,6 +1,15 @@
-<h1 class="text-5xl text-center my-[20px] block">MY BLOG</h1>
+<h1 class="text-5xl text-center my-[20px] block">MY BLOGS</h1>
+
+
 
 <div class="w-[600px] mx-auto mb-6">
+
+    <div class="my-3 flex flex-row justify-between items-center">
+        <p class="text-sm text-slate-500">20 Totals / 10 Loaded</p>
+        <a href="/blog/add" class="border-[1.5px] focus:ring-0 rounded-xl py-1 px-3 border-gray-600 ml-4">Add new blog</a>
+    </div>
+    <hr>
+    <br>
     <?php for ($i = 0; $i < 6; $i++) : ?>
         <div class="w-full mb-2 h-[210px]">
             <p class="text-slate-500 text-sm font-semibold">2 hours ago</p>

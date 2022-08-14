@@ -21,6 +21,16 @@ class TodoController
         $this->todoService = new TodoService($todoRepository);
     }
 
+    public function index(): void
+    {
+        $todos = $this->todoService->getAllData();
+
+        View::render('Home/index', [
+            'title' => 'Home - Todo',
+            'todos' => $todos
+        ]);
+    }
+
     public function store()
     {
         $request = new TodoCreateRequest();

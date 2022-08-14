@@ -17,10 +17,10 @@
                     <h1 class="text-xl font-semibold">My Activity</h1>
                     <ul class="flex flex-row  space-x-7">
                         <li>
-                            <a href="/home">Home</a>
+                            <a href="/">Home</a>
                         </li>
                         <li>
-                            <a href="/">Todo</a>
+                            <a href="/todo">Todo</a>
                         </li>
                         <li>
                             <a href="/blog">BLog</a>
@@ -28,4 +28,4 @@
                     </ul>
                 </div>
             </div>
-            <main class=" min-h-screen w-full">
+            <main class=" w-full">
