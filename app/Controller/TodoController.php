@@ -39,7 +39,7 @@ class TodoController
 
         try {
             $this->todoService->create($request);
-            View::redirect('/', [
+            View::redirect('/todo', [
                 'title' => 'Home - Todo',
             ]);
         } catch (ValidationException $validation) {
@@ -54,7 +54,7 @@ class TodoController
     {
         try {
             $this->todoService->remove($id);
-            View::redirect('/', [
+            View::redirect('/todo', [
                 'title' => 'Home - Todo',
             ]);
         } catch (ValidationException | Exception $validation) {

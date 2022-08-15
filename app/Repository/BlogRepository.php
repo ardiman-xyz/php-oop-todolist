@@ -29,6 +29,15 @@ class BlogRepository
         return $blog;
     }
 
+    public function findAll(): ?array
+    {
+        $sql = "SELECT id, title, content, created_at FROM blogs ORDER BY id desc";
+
+        $statement = $this->db->query($sql);
+        $todos = $statement->fetchAll();
+        return $todos;
+    }
+
     public function deleteAll()
     {
         $this->db->exec("DELETE FROM blogs");

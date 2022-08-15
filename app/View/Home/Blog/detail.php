@@ -22,7 +22,7 @@
     <div class="mt-6">
         <form action="">
             <div class="w-full">
-                <textarea class="ring-1 w-full focus:ring-1 p-4 focus:ring-slate-200 ring-slate-400" name="content" id="conten" rows="10" placeholder="my content..."></textarea>
+                <textarea class="ring-1 rounded-xl w-full focus:ring-1 p-4 focus:ring-slate-200 ring-slate-400" name="content" id="conten" rows="10" placeholder="my content..."></textarea>
             </div>
         </form>
         <div class="mt-4 flex flex-row space-x-2 items-center">

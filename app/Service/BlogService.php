@@ -45,4 +45,14 @@ class BlogService
             throw $exception;
         }
     }
+
+    public function getAllData(): ?array
+    {
+        try {
+
+            return $this->blogRepository->findAll();
+        } catch (Exception $exception) {
+            throw $exception;
+        }
+    }
 }

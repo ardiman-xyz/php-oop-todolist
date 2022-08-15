@@ -23,8 +23,12 @@ class BlogController
 
     public function index()
     {
+        $blogs = $this->blogService->getAllData();
+
         View::render("Home/Blog/index", [
-            'title' => "My blogs"
+            'title' => "My blogs",
+            'blogs' => $blogs,
+            'counts' => count($blogs)
         ]);
     }
 
@@ -32,13 +36,6 @@ class BlogController
     {
         View::render("Home/Blog/create", [
             "title" => "Create new blog"
-        ]);
-    }
-
-    public function show($slug)
-    {
-        View::render("Home/Blog/detail", [
-            'title' => "My firs blog in here app - ardiman"
         ]);
     }
 
@@ -58,5 +55,12 @@ class BlogController
                 "error" => $exception->getMessage()
             ]);
         }
+    }
+
+    public function show($slug)
+    {
+        View::render("Home/Blog/detail", [
+            'title' => "My firs blog in here app - ardiman"
+        ]);
     }
 }
